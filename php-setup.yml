@@ -1,0 +1,5 @@
+- hosts: databaseservers
+  become: yes
+  roles:
+    - php
+  # when: group_names|intersect(['databaseservers'])
