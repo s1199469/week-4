@@ -3,7 +3,7 @@
 2x VM met:
 - automatisch aangemaakte inventory
 - gebruik van roles
-- aanmaken van Ansible inventory file met group-variaben
+- aanmaken van Ansible inventory file met group-variabelen
 - uitvoeren Ansible playbook waarbij iedere group de packages krijgt die in de group-variabelen zijn gedefinieerd
 
 # automatisch genereren van Ansible inventory file
