@@ -94,3 +94,15 @@ variable "vm3_userconfigfile" {
   type =string
   default = "webserver_config.tpl"
 }
+variable "vm1_role1" {
+  type =string
+}
+variable "vm1_role2" {
+  type =string
+}
+variable "vm1_role3" {
+  type =string
+}
+  variable "vm2_role1" {
+  type =string
+}

@@ -107,25 +107,29 @@ ovf_source = "https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.0
 }
 
 # wegschrijven IP adressen in file en aanmaken inventory file
+# van iedere server moet de output handmatig worden toegevoegd aan de array
+
 locals {
   web_ips=[esxi_guest.Server1[0].ip_address]
   db_ips=[esxi_guest.Server2[0].ip_address]
 }
+# aanmaken inventory file
 resource "local_file" "ipaddresses" {
    content = <<-EOT
-   [databaseservers]
+   [${var.vm1_group}]
    %{ for ip in local.db_ips }${ip}
    %{ endfor }
-   [databaseservers:vars]
-   db_role1="mysql"
-   db_role2="php-mysql"
-   [webservers]
+   [${var.vm1_group}:vars]
+   vm1_role1=${var.vm1_role1}
+   vm1_role2=${var.vm1_role2}
+   vm1_role3=${var.vm1_role3}
+
+   [${var.vm2_group}]
    %{ for ip in local.web_ips }${ip}
    %{ endfor }
-   [webservers:vars]
-   web_role1="apache"
-   web_role2="php"
-
+   [${var.vm2_group}:vars]
+   vm2_role1=${var.vm2_role1}
+   # role namen moeten matchen in de ansible-playbook(s)!
    [all:vars]
    ansible_user=ansible
    ansible_ssh_private_key_file=~/.ssh/ansikey
