@@ -12,13 +12,15 @@ Het lukt niet om deze te vullen op basis van servernaam of groep-variabelen. Ik 
 # Roles
 De in de opdracht opgegeven roles zijn per host-group in variabelen geplaatst. Deze worden in de Ansible-playbook 
 
-#Issues
+# Issues
 Het is niet gelukt om de host-groepen in de inventory automatisch te vullen op basis van een vm_group variabelen
-Ass work-around heb ik de server-identifiers als array in variabelen geplaatst
+Als work-around heb ik de server-identifiers als array in variabelen geplaatst
 locals {
+
   web_ips=[esxi_guest.Server1[0].ip_address]
+  
   db_ips=[esxi_guest.Server2[0].ip_address]
+  
 }
 
-update mysql root passwordlukt niet 
-> op backlog
+- update mysql root passwordlukt niet 
