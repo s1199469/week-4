@@ -12,11 +12,13 @@ Het lukt niet om deze te vullen op basis van servernaam of groep-variabelen. Ik 
 De in de opdracht opgegeven roles zijn per host-group in variabelen geplaatst. Deze worden in de Ansible-playbook aangeroepen
 Roles zijn aangemaakt op de beheer-vm met commando ansible role init. Deze maakt de folderstructuur en lege README files aan. Ik gebruik de verkenner van mobaXterm om de folders te kopieren naar de lokale GIT repo op mijn lokale werkstation.
 
-
+# Gebruik van group-variabelen
+De te installeren rollen worden automatisch als group-variabelen toegevoegd aan de inventory. De namen van de rollen staan gedefinieerd in de variables.tf en oef4.auto.tfvars files
 
 # Issues
 Het is niet gelukt om de host-groepen in de inventory automatisch te vullen op basis van een vm_group variabelen
-Als work-around heb ik de server-identifiers als array in variabelen geplaatst
+Als work-around heb ik de server-identifiers als array in lokale variabelen geplaatst:
+
 locals {
 
   web_ips=[esxi_guest.Server1[0].ip_address]
