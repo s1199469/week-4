@@ -1,6 +1,5 @@
-#LAB WEEK-4
-## Opdracht 1
-2x VM met:
+#  WEEK-4 Opdracht 1
+vraag: 2x VM met:
 - automatisch aangemaakte inventory
 - gebruik van roles
 - aanmaken van Ansible inventory file met group-variabelen
@@ -10,7 +9,10 @@
 Het lukt niet om deze te vullen op basis van servernaam of groep-variabelen. Ik heb de inhoud deels handmatig ingevuld maar wel met gebruik van variabelen. 
 
 # Roles
-De in de opdracht opgegeven roles zijn per host-group in variabelen geplaatst. Deze worden in de Ansible-playbook 
+De in de opdracht opgegeven roles zijn per host-group in variabelen geplaatst. Deze worden in de Ansible-playbook aangeroepen
+Roles zijn aangemaakt op de beheer-vm met commando ansible role init. Deze maakt de folderstructuur en lege README files aan. Ik gebruik de verkenner van mobaXterm om de folders te kopieren naar de lokale GIT repo op mijn lokale werkstation.
+
+
 
 # Issues
 Het is niet gelukt om de host-groepen in de inventory automatisch te vullen op basis van een vm_group variabelen
