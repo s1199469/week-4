@@ -15,6 +15,30 @@ Roles zijn aangemaakt op de beheer-vm met commando ansible role init. Deze maakt
 # Gebruik van group-variabelen
 De te installeren rollen worden automatisch als group-variabelen toegevoegd aan de inventory. De namen van de rollen staan gedefinieerd in de variables.tf en oef4.auto.tfvars files
 
+# toevoegen in inventory file: 
+
+resource "local_file" "ipaddresses" {
+
+   content = <<-EOT
+   
+   [${var.vm1_group}]
+   
+   %{ for ip in local.db_ips }${ip}
+   
+   %{ endfor }
+   
+   [${var.vm1_group}:vars]
+   
+   vm1_role1=${var.vm1_role1}
+   
+   vm1_role2=${var.vm1_role2}
+   
+   vm1_role3=${var.vm1_role3}
+
+   .....
+   
+   EOT
+
 # Issues
 Het is niet gelukt om de host-groepen in de inventory automatisch te vullen op basis van een vm_group variabelen
 Als work-around heb ik de server-identifiers als array in lokale variabelen geplaatst:
