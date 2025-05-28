@@ -10,8 +10,23 @@ vraag: 2x VM met:
 ----
 ## Issues
 
+- Het is niet gelukt om de host-groepen in de inventory automatisch te vullen op basis van een vm_group variabelen
+Als work-around heb ik de server-identifiers als array in lokale variabelen geplaatst:
+
+locals {
+
+  web_ips=[esxi_guest.Server1[0].ip_address]
+  
+  db_ips=[esxi_guest.Server2[0].ip_address]
+  
+}
+
+- update mysql root passwordlukt niet 
+
+
 ----
 ## Status
+Deployment werkt en maakt gebruik van de Ansible roles
 
 ----
 # automatisch genereren van Ansible inventory file
@@ -48,16 +63,4 @@ resource "local_file" "ipaddresses" {
    
    EOT
 
-# Issues
-Het is niet gelukt om de host-groepen in de inventory automatisch te vullen op basis van een vm_group variabelen
-Als work-around heb ik de server-identifiers als array in lokale variabelen geplaatst:
 
-locals {
-
-  web_ips=[esxi_guest.Server1[0].ip_address]
-  
-  db_ips=[esxi_guest.Server2[0].ip_address]
-  
-}
-
-- update mysql root passwordlukt niet 

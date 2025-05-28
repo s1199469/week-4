@@ -14,7 +14,8 @@
       include_role:
         name: php-mysql
       when: group_names|intersect(['webservers'])
+  # Installeer mysql met een ansible-galaxy rol van gebruiker vox-x
     - name: install mysql
       include_role:
-        name: mysql
+        name: vox-x.dbservers
       when: group_names|intersect(['databaseservers'])
