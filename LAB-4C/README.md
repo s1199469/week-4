@@ -11,6 +11,13 @@ Instalatie: __ansible-galaxy riel install vox-x.dbservers__
 
 ----
 ## Issues
+vox-x.dbservers wil een user aanmaken en verwacht variabele mysql_user
+
+In de lokale installatie ontbreekt de directory /vars
+
+Aangemaakt en variabelen mysql_user en mysqlpassword in main.tf geplaatst
+
+Oplossing werkt niet.
 
 ----
 ## status
@@ -21,4 +28,5 @@ Instalatie: __ansible-galaxy riel install vox-x.dbservers__
 >- extracting vox-x.dbservers to /home/student/.ansible/roles/vox-x.dbservers
 >- vox-x.dbservers (main) was installed successfully
 
+de geinstalleerde ansible-galax role is in ieder geval aangeroepen. Ik heb het issue doorgegeven aan vox-x
 ----
