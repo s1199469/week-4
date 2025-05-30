@@ -6,15 +6,16 @@
       include_role:
         name: php
       when: group_names|intersect(['webservers'])
-    - name: install apache
+    - name: install s1199469.apache
       include_role:
-        name: apache
+        name: s1199469.apache
       when: group_names|intersect(['webservers'])
     - name: install php-mysql
       include_role:
         name: php-mysql
       when: group_names|intersect(['webservers'])
+  # Installeer mysql met een ansible-galaxy rol van gebruiker vox-x
     - name: install mysql
       include_role:
-        name: mysql
+        name: vox-x.dbservers
       when: group_names|intersect(['databaseservers'])
